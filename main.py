@@ -1,15 +1,17 @@
-# 在此文件中实现 isOdd 函数
+def is_prime(num):
+    """判断一个数是否为质数"""
+    if num < 2:
+        return False
+    for i in range(2, int(num ** 0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
 
-def isOdd(value):
-    """
-    判断输入是否为奇整数    
-    参数:
-    value - 任意类型的输入值    
-    返回:
-    bool - 如果是整数且为奇数返回 True，否则返回 False
-    """
-    # 学生实现代码区域
-    # 提示：首先检查类型是否为整数，然后检查奇偶性
-    return isinstance(value, int) and num % 2 == 1
-print(isOdd())  
+def PrimeList(N):
+    """输出小于N的所有质数，以空格分隔"""
+    primes = [str(num) for num in range(2, N) if is_prime(num)]
+    return ' '.join(primes)
 
+# 测试示例
+n = int(input("请输入整数N："))
+print(PrimeList(n))
